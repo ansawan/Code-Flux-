@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-void: #000000;
+    --bg-panel: rgba(255, 255, 255, 0.03);
+    --border: rgba(255, 255, 255, 0.07);
+
+    --metal-dark: #12191C;
+    --metal-mid: #232F33;
+    --metal-light: #3C4D52;
+
+    --text-primary: #EAF6F5;
+    --text-secondary: #8FA6A3;
+    --text-muted: #47585A;
+
+    --flux-teal: #4DE8DC;
+    --flux-teal-core: #2FBFB0;
+    --flux-teal-dim: #1D6E68;
+
+    --gradient-flux: linear-gradient(135deg, #2FBFB0 0%, #4DE8DC 100%);
+    --glow-teal: rgba(77, 232, 220, 0.25);
+  }
+
+  html, body {
+    background-color: var(--bg-void);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    scroll-behavior: auto !important;
+  }
+}
+
+@theme {
+  --color-flux-teal: #4DE8DC;
+  --color-flux-core: #2FBFB0;
+  --color-flux-dim: #1D6E68;
+  --color-metal-dark: #12191C;
+  --color-metal-mid: #232F33;
+  --color-metal-light: #3C4D52;
+  --color-text-primary: #EAF6F5;
+  --color-text-secondary: #8FA6A3;
+  --color-text-muted: #47585A;
+}
+
+.hero-heading {
+  text-shadow: 0 2px 24px rgba(0,0,0,0.9), 0 1px 2px rgba(0,0,0,0.9);
+}
+
+.flux-word {
+  color: #4DE8DC;
+  -webkit-text-stroke: 1px rgba(191, 255, 248, 0.9);
+  filter:
+    drop-shadow(0 0 4px rgba(77, 232, 220, 0.9))
+    drop-shadow(0 0 14px rgba(77, 232, 220, 0.6))
+    drop-shadow(0 0 34px rgba(47, 191, 176, 0.4));
+  animation: flux-pulse 3s ease-in-out infinite;
+}
+
+@keyframes flux-pulse {
+  0%, 100% {
+    filter:
+      drop-shadow(0 0 4px rgba(77, 232, 220, 0.9))
+      drop-shadow(0 0 14px rgba(77, 232, 220, 0.6))
+      drop-shadow(0 0 34px rgba(47, 191, 176, 0.4));
+  }
+  50% {
+    filter:
+      drop-shadow(0 0 6px rgba(77, 232, 220, 1))
+      drop-shadow(0 0 20px rgba(77, 232, 220, 0.75))
+      drop-shadow(0 0 46px rgba(47, 191, 176, 0.5));
+  }
+}
+
+/* Custom WebGL Overlay Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(77, 232, 220, 0.4);
+}
+
+@keyframes carousel-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.animate-carousel-scroll {
+  animation: carousel-scroll 32s linear infinite;
+}
+
